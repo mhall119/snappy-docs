@@ -44,7 +44,7 @@ Finally click **Create snap package** to save your build config and kick it off.
 
 # Trigger Snap builds from CI
 
-Once you've done the above you can manually trigger new builds, and any successful one will be published into the `edge` channel of the store, and be installable with `snap install --edge myapp`.
+Once you've done the above you can manually trigger new builds, and any successful one will be released into the `edge` channel of the store, and be installable with `snap install --edge myapp`.
 
 But what you're really after is making this automatic. Since the packaging config lives separate from the main `MyApp` code, you'll need some way of kicking builds off when the main code repo is updated.
 
@@ -54,10 +54,10 @@ To get it, `snap install lp-build-snap` and then `lp-build-snap --help` to see h
 
 You can run this from your existing CI process whenever a new commit lands in master. The first time you run the command it will make you do an authorization step in a webbrowser to get access credentials. These credentials will store in `~/snap/lp-build-snap/current/snap-builds/credentials`, and you should safeguard them if you don't have strict control over your CI environment. After you've authorized the tool it can be called by your CI scripts to kick off snap builds whenever a new commit lands.
 
-# Publish and promote builds
+# Release and promote builds
 
 Once your snap is built and in the store, you can manage what channels
-it's published to from any computer with the `snapcraft` tool installed.
+it's released to from any computer with the `snapcraft` tool installed.
 
 To see what revisions of the snap package are in each of the channels:
 `snapcraft status myapp`
